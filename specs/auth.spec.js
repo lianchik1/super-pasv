@@ -5,21 +5,21 @@ describe('Auth', function() {
     let authHelper = new AuthHelper()
 
     describe('Successful log in', function() {
-        before(async function(){
+        before(async function() {
             await authHelper.login(process.env.LOGIN, process.env.PASSWORD)
         })
 
-        it('response status code is 200', function(){
+        it('response status code is 200', function() {
             expect(authHelper.response.statusCode).to.eq(200)
     })
 
-        it('response body contains authorization token', function(){
+        it('response body contains authorization token', function() {
             expect(authHelper.response.body.token).not.to.be.undefined
         })
 })
 
-    describe('Log in with invalid credentials', function(){
-        before(async function(){
+    describe('Log in with invalid credentials', function() {
+        before(async function() {
             await authHelper.login('invalid', 'invalid')
         })
 
